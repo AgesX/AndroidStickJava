@@ -1,0 +1,8 @@
+include ':base-adapter-library'
+include ':app'
+rootProject.name = "stick"
+
+
+
+
+

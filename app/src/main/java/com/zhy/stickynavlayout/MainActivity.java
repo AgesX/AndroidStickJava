@@ -10,8 +10,7 @@ import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
 import com.zhy.stickynavlayout.view.SimpleViewPagerIndicator;
 
 
-public class MainActivity extends FragmentActivity
-{
+public class MainActivity extends FragmentActivity {
 	private String[] mTitles = new String[] { "南湖", "秋水", "夜无烟" };
 	private SimpleViewPagerIndicator mIndicator;
 	private ViewPager mViewPager;
@@ -54,23 +53,25 @@ public class MainActivity extends FragmentActivity
 
 	}
 
-	private void initDatas()
-	{
+	private void initDatas(){
 		mIndicator.setTitles(mTitles);
 
-		for (int i = 0; i < mTitles.length; i++)
-		{
+		for (int i = 0; i < mTitles.length; i++){
 			mFragments[i] = (TabFragment) TabFragment.newInstance(mTitles[i]);
 		}
 
-		mAdapter = new FragmentPagerAdapter(getSupportFragmentManager())
-		{
+		mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()){
+
+			// the number of pages
+			// 有几页
 			@Override
 			public int getCount()
 			{
 				return mTitles.length;
 			}
 
+
+			// 每一页，具体的内容
 			@Override
 			public Fragment getItem(int position)
 			{
@@ -88,6 +89,12 @@ public class MainActivity extends FragmentActivity
 		mIndicator = (SimpleViewPagerIndicator) findViewById(R.id.id_stickynavlayout_indicator);
 		mViewPager = (ViewPager) findViewById(R.id.id_stickynavlayout_viewpager);
 	}
-
-
 }
+
+
+
+
+
+
+
+

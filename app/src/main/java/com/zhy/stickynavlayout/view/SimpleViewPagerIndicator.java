@@ -67,13 +67,7 @@ public class SimpleViewPagerIndicator extends LinearLayout
 		canvas.restore();
 	}
 
-	public void scroll(int position, float offset)
-	{
-		/**
-		 * <pre>
-		 *  0-1:position=0 ;1-0:postion=0;
-		 * </pre>
-		 */
+	public void scroll(int position, float offset){
 		mTranslationX = getWidth() / mTabCount * (position + offset);
 		invalidate();
 	}
@@ -106,10 +100,7 @@ public class SimpleViewPagerIndicator extends LinearLayout
 			tv.setOnClickListener(new OnClickListener()
 			{
 				@Override
-				public void onClick(View v)
-				{
-
-				}
+				public void onClick(View v){    	}
 			});
 			addView(tv);
 		}

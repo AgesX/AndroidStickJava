@@ -12,7 +12,7 @@ import com.zhy.stickynavlayout.view.SimpleViewPagerIndicator;
 
 public class MainActivity extends FragmentActivity
 {
-	private String[] mTitles = new String[] { "简介", "评价", "相关" };
+	private String[] mTitles = new String[] { "南湖", "秋水", "夜无烟" };
 	private SimpleViewPagerIndicator mIndicator;
 	private ViewPager mViewPager;
 	private FragmentPagerAdapter mAdapter;

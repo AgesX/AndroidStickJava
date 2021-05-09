@@ -22,7 +22,6 @@ public class TabFragment extends Fragment
     public static final String TITLE = "title";
     private String mTitle = "Defaut Value";
     private RecyclerView mRecyclerView;
-    // private TextView mTextView;
     private List<String> mDatas = new ArrayList<String>();
 
     @Override
@@ -43,10 +42,7 @@ public class TabFragment extends Fragment
         mRecyclerView = (RecyclerView) view
                 .findViewById(R.id.id_stickynavlayout_innerscrollview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        // mTextView = (TextView) view.findViewById(R.id.id_info);
-        // mTextView.setText(mTitle);
-        for (int i = 0; i < 50; i++)
-        {
+        for (int i = 0; i < 50; i++){
             mDatas.add(mTitle + " -> " + i);
         }
         mRecyclerView.setAdapter(new CommonAdapter<String>(getActivity(), R.layout.item, mDatas)

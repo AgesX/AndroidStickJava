@@ -1,4 +1,3 @@
-// package com.zhy.adapter.recyclerview.base;
 package com.zhy.base.adapter.recyclerview.base;
 
 

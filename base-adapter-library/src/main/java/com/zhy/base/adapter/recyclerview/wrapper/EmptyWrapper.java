@@ -1,32 +1,13 @@
-
 package com.zhy.base.adapter.recyclerview.wrapper;
-// package com.zhy.adapter.recyclerview.wrapper;
 
-
-
-// import android.support.v7.widget.GridLayoutManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 
-
-// import android.support.v7.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import android.view.View;
 import android.view.ViewGroup;
-
-
-
 import com.zhy.base.adapter.recyclerview.base.ViewHolder;
-// import com.zhy.adapter.recyclerview.base.ViewHolder;
-
-
 import com.zhy.base.adapter.recyclerview.utils.WrapperUtils;
-
-// import com.zhy.adapter.recyclerview.utils.WrapperUtils;
-
-
-
 
 /**
  * Created by zhy on 16/6/23.

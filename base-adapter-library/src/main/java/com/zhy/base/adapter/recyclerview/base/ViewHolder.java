@@ -1,4 +1,3 @@
-// package com.zhy.adapter.recyclerview.base;
 package com.zhy.base.adapter.recyclerview.base;
 
 import android.annotation.SuppressLint;
@@ -11,9 +10,6 @@ import android.os.Build;
 
 
 import androidx.recyclerview.widget.RecyclerView;
-//
-// import android.support.v7.widget.RecyclerView;
-
 
 import android.text.util.Linkify;
 import android.util.SparseArray;

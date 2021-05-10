@@ -40,24 +40,6 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
     }
 
     @Override
-    public void onNestedScrollAccepted(View child, View target, int nestedScrollAxes)
-    {
-        Log.e(TAG, "onNestedScrollAccepted");
-    }
-
-    @Override
-    public void onStopNestedScroll(View target)
-    {
-        Log.e(TAG, "onStopNestedScroll");
-    }
-
-    @Override
-    public void onNestedScroll(View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed)
-    {
-        Log.e(TAG, "onNestedScroll");
-    }
-
-    @Override
     public void onNestedPreScroll(View target, int dx, int dy, int[] consumed)
     {
         Log.e(TAG, "onNestedPreScroll");
@@ -91,7 +73,7 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
         Log.e(TAG, "getNestedScrollAxes");
         return 0;
     }
-    
+
     private View mTop;
     private View mNav;
     private ViewPager2 mViewPager;

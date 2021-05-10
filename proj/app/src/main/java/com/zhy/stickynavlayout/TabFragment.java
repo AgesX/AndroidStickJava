@@ -42,7 +42,7 @@ public class TabFragment extends Fragment
         mRecyclerView = (RecyclerView) view
                 .findViewById(R.id.id_stickynavlayout_innerscrollview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        for (int i = 0; i < 50; i++){
+        for (int i = 0; i < 20; i++){
             mDatas.add(mTitle + " -> " + i);
         }
         mRecyclerView.setAdapter(new CommonAdapter<String>(getActivity(), R.layout.item, mDatas)

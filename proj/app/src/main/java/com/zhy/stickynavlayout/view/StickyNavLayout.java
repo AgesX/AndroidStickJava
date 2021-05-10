@@ -75,20 +75,6 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
     @Override
     public boolean onNestedFling(View target, float velocityX, float velocityY, boolean consumed)
     {
-        //如果是recyclerView 根据判断第一个元素是哪个位置可以判断是否消耗
-        //这里判断如果第一个元素的位置是大于TOP_CHILD_FLING_THRESHOLD的
-        //认为已经被消耗，在animateScroll里不会对velocityY<0时做处理
-        if (target instanceof RecyclerView && velocityY < 0) {
-            final RecyclerView recyclerView = (RecyclerView) target;
-            final View firstChild = recyclerView.getChildAt(0);
-            final int childAdapterPosition = recyclerView.getChildAdapterPosition(firstChild);
-            consumed = childAdapterPosition > TOP_CHILD_FLING_THRESHOLD;
-        }
-        if (consumed) {
-            animateScroll(velocityY, computeDuration(velocityY),consumed);
-        } else {
-            animateScroll(velocityY, computeDuration(0),consumed);
-        }
         return true;
     }
 
@@ -133,17 +119,7 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
 
     }
 
-    private void animateScroll(float velocityY, final int duration,boolean consumed) {
-        final int currentOffset = getScrollY();
-        final int topHeight = mTop.getHeight();
 
-        if (velocityY >= 0) {
-            // scrollTo(0, topHeight);
-        }else if( !consumed ){
-                // 如果子 View 没有消耗 down 事件 那么就让自身滑到 0 位置
-              //  scrollTo(0, 0);
-        }
-    }
 
     private View mTop;
     private View mNav;

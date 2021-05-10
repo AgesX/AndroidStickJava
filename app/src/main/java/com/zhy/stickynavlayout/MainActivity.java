@@ -69,12 +69,6 @@ public class MainActivity extends FragmentActivity {
 		mIndicator = (SimpleViewPagerIndicator) findViewById(R.id.id_stickynavlayout_indicator);
 		mViewPager = (ViewPager2) findViewById(R.id.id_stickynavlayout_viewpager);
 	}
-
-
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-	}
 }
 
 

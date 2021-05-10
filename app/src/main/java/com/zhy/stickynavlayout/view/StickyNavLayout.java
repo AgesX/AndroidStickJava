@@ -6,8 +6,7 @@ import android.content.Context;
 
 import androidx.core.view.NestedScrollingParent;
 import androidx.core.view.ViewCompat;
-import androidx.viewpager.widget.ViewPager;
-
+import androidx.viewpager2.widget.ViewPager2;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -163,7 +162,7 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
 
     private View mTop;
     private View mNav;
-    private ViewPager mViewPager;
+    private ViewPager2 mViewPager;
 
     private int mTopViewHeight;
 
@@ -215,12 +214,12 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
         mTop = findViewById(R.id.id_stickynavlayout_topview);
         mNav = findViewById(R.id.id_stickynavlayout_indicator);
         View view = findViewById(R.id.id_stickynavlayout_viewpager);
-        if (!(view instanceof ViewPager))
+        if (!(view instanceof ViewPager2))
         {
             throw new RuntimeException(
                     "id_stickynavlayout_viewpager show used by ViewPager !");
         }
-        mViewPager = (ViewPager) view;
+        mViewPager = (ViewPager2) view;
     }
 
     @Override

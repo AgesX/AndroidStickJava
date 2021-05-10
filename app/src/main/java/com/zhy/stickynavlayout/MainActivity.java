@@ -2,19 +2,21 @@ package com.zhy.stickynavlayout;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
+import 	androidx.viewpager2.adapter.FragmentStateAdapter;
+
+import androidx.viewpager2.widget.ViewPager2;
+import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback;
 import com.zhy.stickynavlayout.view.SimpleViewPagerIndicator;
 
 
 public class MainActivity extends FragmentActivity {
 	private String[] mTitles = new String[] { "南湖", "秋水", "夜无烟" };
 	private SimpleViewPagerIndicator mIndicator;
-	private ViewPager mViewPager;
-	private FragmentPagerAdapter mAdapter;
+	private ViewPager2 mViewPager;
+	private FragmentStateAdapter mAdapter;
 	private TabFragment[] mFragments = new TabFragment[mTitles.length];
 
 	@Override
@@ -28,25 +30,13 @@ public class MainActivity extends FragmentActivity {
 		initEvents();
 	}
 
-	private void initEvents()
-	{
-		mViewPager.addOnPageChangeListener(new OnPageChangeListener() {
+	private void initEvents() {
+		mViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback(){
 			@Override
 			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 				mIndicator.scroll(position, positionOffset);
 			}
-
-			@Override
-			public void onPageSelected(int position) {
-
-			}
-
-			@Override
-			public void onPageScrollStateChanged(int state) {
-
-			}
 		});
-
 	}
 
 	private void initDatas(){
@@ -55,34 +45,31 @@ public class MainActivity extends FragmentActivity {
 		for (int i = 0; i < mTitles.length; i++){
 			mFragments[i] = (TabFragment) TabFragment.newInstance(mTitles[i]);
 		}
-		mAdapter = new FragmentPagerAdapter(getSupportFragmentManager(), 1){
+
+
+		mViewPager.setAdapter(new FragmentStateAdapter(this) {
+
+			// 每一页，具体的内容
+			@NonNull
+			@Override
+			public Fragment createFragment(int position) {
+				return mFragments[position];
+			}
 
 			// the number of pages
 			// 有几页
 			@Override
-			public int getCount()
-			{
+			public int getItemCount() {
 				return mTitles.length;
 			}
-
-
-			// 每一页，具体的内容
-			@Override
-			public Fragment getItem(int position)
-			{
-				return mFragments[position];
-			}
-
-		};
-
-		mViewPager.setAdapter(mAdapter);
+		});
 		mViewPager.setCurrentItem(0);
 	}
 
 	private void initViews()
 	{
 		mIndicator = (SimpleViewPagerIndicator) findViewById(R.id.id_stickynavlayout_indicator);
-		mViewPager = (ViewPager) findViewById(R.id.id_stickynavlayout_viewpager);
+		mViewPager = (ViewPager2) findViewById(R.id.id_stickynavlayout_viewpager);
 	}
 
 

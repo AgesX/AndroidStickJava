@@ -16,7 +16,6 @@ public class MainActivity extends FragmentActivity {
 	private String[] mTitles = new String[] { "南湖", "秋水", "夜无烟" };
 	private SimpleViewPagerIndicator mIndicator;
 	private ViewPager2 mViewPager;
-	private FragmentStateAdapter mAdapter;
 	private TabFragment[] mFragments = new TabFragment[mTitles.length];
 
 	@Override
@@ -45,7 +44,8 @@ public class MainActivity extends FragmentActivity {
 		for (int i = 0; i < mTitles.length; i++){
 			mFragments[i] = (TabFragment) TabFragment.newInstance(mTitles[i]);
 		}
-		mAdapter = new FragmentStateAdapter(this) {
+
+		mViewPager.setAdapter(new FragmentStateAdapter(this) {
 
 			// 每一页，具体的内容
 			@NonNull
@@ -60,9 +60,7 @@ public class MainActivity extends FragmentActivity {
 			public int getItemCount() {
 				return mTitles.length;
 			}
-		};
-
-		mViewPager.setAdapter(mAdapter);
+		});
 		mViewPager.setCurrentItem(0);
 	}
 

@@ -53,11 +53,6 @@ public class TabFragment extends Fragment
                 holder.setText(R.id.id_info, o);
             }
 
-
-            @Override
-            protected void convert(ViewHolder holder, String s, int position) {
-
-            }
         });
 
         return view;

@@ -1,6 +1,5 @@
 package com.zhy.stickynavlayout.view;
 
-import android.animation.ValueAnimator;
 import android.content.Context;
 
 
@@ -137,28 +136,12 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
     private void animateScroll(float velocityY, final int duration,boolean consumed) {
         final int currentOffset = getScrollY();
         final int topHeight = mTop.getHeight();
-        if (mOffsetAnimator == null) {
-            mOffsetAnimator = new ValueAnimator();
-            mOffsetAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    if (animation.getAnimatedValue() instanceof Integer) {
-                        scrollTo(0, (Integer) animation.getAnimatedValue());
-                    }
-                }
-            });
-        } else {
-            mOffsetAnimator.cancel();
-        }
-        mOffsetAnimator.setDuration(Math.min(duration, 600));
 
         if (velocityY >= 0) {
-            mOffsetAnimator.setIntValues(currentOffset, topHeight);
-            mOffsetAnimator.start();
+            // scrollTo(0, topHeight);
         }else if( !consumed ){
                 // 如果子 View 没有消耗 down 事件 那么就让自身滑到 0 位置
-                mOffsetAnimator.setIntValues(currentOffset, 0);
-                mOffsetAnimator.start();
+              //  scrollTo(0, 0);
         }
     }
 
@@ -170,7 +153,6 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
 
     private OverScroller mScroller;
     private VelocityTracker mVelocityTracker;
-    private ValueAnimator mOffsetAnimator;
 
     private int mTouchSlop;
     private int mMaximumVelocity, mMinimumVelocity;

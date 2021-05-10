@@ -91,36 +91,7 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
         Log.e(TAG, "getNestedScrollAxes");
         return 0;
     }
-
-    /**
-     * 根据速度计算滚动动画持续时间
-     * @param velocityY
-     * @return
-     */
-    private int computeDuration(float velocityY) {
-        final int distance;
-        if (velocityY > 0) {
-            distance = Math.abs(mTop.getHeight() - getScrollY());
-        } else {
-            distance = Math.abs(mTop.getHeight() - (mTop.getHeight() - getScrollY()));
-        }
-
-
-        final int duration;
-        velocityY = Math.abs(velocityY);
-        if (velocityY > 0) {
-            duration = 3 * Math.round(1000 * (distance / velocityY));
-        } else {
-            final float distanceRatio = (float) distance / getHeight();
-            duration = (int) ((distanceRatio + 1) * 150);
-        }
-
-        return duration;
-
-    }
-
-
-
+    
     private View mTop;
     private View mNav;
     private ViewPager2 mViewPager;

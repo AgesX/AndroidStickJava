@@ -139,7 +139,6 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
         final int topHeight = mTop.getHeight();
         if (mOffsetAnimator == null) {
             mOffsetAnimator = new ValueAnimator();
-            mOffsetAnimator.setInterpolator(mInterpolator);
             mOffsetAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator animation) {
@@ -172,7 +171,7 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
     private OverScroller mScroller;
     private VelocityTracker mVelocityTracker;
     private ValueAnimator mOffsetAnimator;
-    private Interpolator mInterpolator;
+
     private int mTouchSlop;
     private int mMaximumVelocity, mMinimumVelocity;
 

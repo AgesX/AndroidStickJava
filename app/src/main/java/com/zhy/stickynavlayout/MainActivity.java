@@ -45,9 +45,7 @@ public class MainActivity extends FragmentActivity {
 		for (int i = 0; i < mTitles.length; i++){
 			mFragments[i] = (TabFragment) TabFragment.newInstance(mTitles[i]);
 		}
-
-
-		mViewPager.setAdapter(new FragmentStateAdapter(this) {
+		mAdapter = new FragmentStateAdapter(this) {
 
 			// 每一页，具体的内容
 			@NonNull
@@ -62,7 +60,9 @@ public class MainActivity extends FragmentActivity {
 			public int getItemCount() {
 				return mTitles.length;
 			}
-		});
+		};
+
+		mViewPager.setAdapter(mAdapter);
 		mViewPager.setCurrentItem(0);
 	}
 

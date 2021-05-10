@@ -57,7 +57,7 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
     {
         Log.e(TAG, "onNestedPreScroll");
         boolean hiddenTop = dy > 0 && getScrollY() < mTopViewHeight;
-        boolean showTop = dy < 0 && getScrollY() >= 0 && !ViewCompat.canScrollVertically(target, -1);
+        boolean showTop = dy < 0 && getScrollY() >= 0 && !target.canScrollVertically(-1);
 
         if (hiddenTop || showTop)
         {

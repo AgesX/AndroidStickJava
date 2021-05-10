@@ -30,23 +30,19 @@ public class MainActivity extends FragmentActivity {
 
 	private void initEvents()
 	{
-		mViewPager.setOnPageChangeListener(new OnPageChangeListener()
-		{
+		mViewPager.addOnPageChangeListener(new OnPageChangeListener() {
 			@Override
-			public void onPageSelected(int position)
-			{
-			}
-
-			@Override
-			public void onPageScrolled(int position, float positionOffset,
-					int positionOffsetPixels)
-			{
+			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 				mIndicator.scroll(position, positionOffset);
 			}
 
 			@Override
-			public void onPageScrollStateChanged(int state)
-			{
+			public void onPageSelected(int position) {
+
+			}
+
+			@Override
+			public void onPageScrollStateChanged(int state) {
 
 			}
 		});
@@ -88,6 +84,12 @@ public class MainActivity extends FragmentActivity {
 	{
 		mIndicator = (SimpleViewPagerIndicator) findViewById(R.id.id_stickynavlayout_indicator);
 		mViewPager = (ViewPager) findViewById(R.id.id_stickynavlayout_viewpager);
+	}
+
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
 	}
 }
 

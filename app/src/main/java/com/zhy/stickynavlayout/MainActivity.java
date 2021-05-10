@@ -55,8 +55,7 @@ public class MainActivity extends FragmentActivity {
 		for (int i = 0; i < mTitles.length; i++){
 			mFragments[i] = (TabFragment) TabFragment.newInstance(mTitles[i]);
 		}
-
-		mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()){
+		mAdapter = new FragmentPagerAdapter(getSupportFragmentManager(), 1){
 
 			// the number of pages
 			// 有几页
